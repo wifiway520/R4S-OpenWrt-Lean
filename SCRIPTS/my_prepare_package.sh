@@ -67,17 +67,6 @@ rm -f zzz-default-settings
 cp ${MY_PATH}/../PATCH/zzz-default-settings ./
 popd
 
-# 移除 LuCI 部分页面
-pushd feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_system
-rm -fr backupfiles.lua fstab* ipkg.lua
-popd
-pushd feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system
-rm -fr applyreboot.htm backupfiles.htm flashops.htm ipkg.htm  packages.htm upgrade.htm
-popd
-pushd feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin
-rm -fr system.lua
-cp ${MY_PATH}/../PATCH/system.lua ./
-popd
 
 # 删除指向 fstab 页面的超链接
 pushd package/lean/luci-app-samba4/luasrc/model/cbi
